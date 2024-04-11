@@ -31,3 +31,13 @@ static void mm_free_memory_page_to_kernel(void *vm_page, int units)
         printf("Error: VM Page deallocation failed. Could not munmap VM page to kernel\n");
     }
 }
+
+int main(int argc, char **argv)
+{
+    mm_init();
+    printf("VM page size = %lu\n", SYZE_PAGE_SIZE);
+    void *addr_01 = mm_get_new_vm_page_from_kernel(1);
+    void *addr_02 = mm_get_new_vm_page_from_kernel(1);
+    printf("page 01 = %p, page 02 = %p\n", addr_01, addr_02);
+    return 0;
+}
