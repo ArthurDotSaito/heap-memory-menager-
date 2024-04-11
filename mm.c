@@ -23,3 +23,11 @@ static void *mm_get_new_vm_page_from_kernel(int units)
     memset(vm_page, 0, units * SYZE_PAGE_SIZE);
     return (void *)vm_page;
 }
+
+static void mm_free_memory_page_to_kernel(void *vm_page, int units)
+{
+    if (munmap(vm_page, units * SYZE_PAGE_SIZE))
+    {
+        printf("Error: VM Page deallocation failed. Could not munmap VM page to kernel\n");
+    }
+}
