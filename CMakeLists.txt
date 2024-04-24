@@ -7,4 +7,6 @@ include_directories(.)
 
 add_executable(LinuxMemoryMenager
         mm.c
-        mm.h)
+        mm.h
+        user_memory_api.h
+        testapp.c)

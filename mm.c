@@ -72,13 +72,3 @@ void mm_instantiate_new_page_family(char *struct_name, uint32_t struct_size){
     vm_page_family_curr->struct_size = struct_size;
     vm_page_family_curr->first_page = NULL; //there's no first_page yet. I must define what is a vm_page first.
 }
-
-int main(int argc, char **argv)
-{
-    mm_init();
-    printf("VM page size = %lu\n", SYSTEM_PAGE_SIZE);
-    void *addr_01 = mm_get_new_vm_page_from_kernel(1);
-    void *addr_02 = mm_get_new_vm_page_from_kernel(1);
-    printf("page 01 = %p, page 02 = %p\n", addr_01, addr_02);
-    return 0;
-}
