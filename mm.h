@@ -1,4 +1,3 @@
-
 #include <stdint-gcc.h>
 
 #define MM_MAX_STRUCT_NAME 32
@@ -16,7 +15,7 @@ typedef struct vm_page_for_families_
 } vm_page_for_families_t;
 
 #define MAX_FAMILIES_PER_VM_PAGE \
-    (SYSTEM_PAGE_SIZE - sizeof(vm_page_for_families_t *)) / sizeof(vm_page_family_t)
+    ((SYSTEM_PAGE_SIZE - sizeof(vm_page_for_families_t *)) / sizeof(vm_page_family_t))
 
 #define ITERATE_PAGE_FAMILIES_BEGIN(vm_page_for_families_ptr, curr)                   \
     {                                                                                 \
@@ -26,6 +25,5 @@ typedef struct vm_page_for_families_
              curr->struct_size && count < MAX_FAMILIES_PER_VM_PAGE;                   \
              curr++, count++)                                                         \
         {
-
 #define ITERATE_PAGE_FAMILIES_END(vm_page_for_families_ptr, curr)   }}
 
