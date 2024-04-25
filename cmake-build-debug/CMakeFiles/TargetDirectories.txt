@@ -1,3 +1,0 @@
-/home/arthur/Projects/LinuxMemoryMenager/cmake-build-debug/CMakeFiles/LinuxMemoryMenager.dir
-/home/arthur/Projects/LinuxMemoryMenager/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/arthur/Projects/LinuxMemoryMenager/cmake-build-debug/CMakeFiles/rebuild_cache.dir

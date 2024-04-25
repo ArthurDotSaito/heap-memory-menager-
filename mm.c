@@ -72,3 +72,31 @@ void mm_instantiate_new_page_family(char *struct_name, uint32_t struct_size){
     vm_page_family_curr->struct_size = struct_size;
     vm_page_family_curr->first_page = NULL; //there's no first_page yet. I must define what is a vm_page first.
 }
+
+void mm_print_registered_page_families(){
+    vm_page_family_t  *curr_vm_page_family = NULL;
+    vm_page_for_families_t *curr_vm_page_for_families = NULL;
+
+    for(curr_vm_page_for_families = first_vm_page_for_families;
+    curr_vm_page_for_families;
+    curr_vm_page_for_families = curr_vm_page_for_families->next){
+        ITERATE_PAGE_FAMILIES_BEGIN(curr_vm_page_for_families, curr_vm_page_family){
+                    printf("Page family: %s, Size: %u\n", curr_vm_page_family->struct_name, curr_vm_page_family->struct_size);
+        }ITERATE_PAGE_FAMILIES_END(curr_vm_page_for_families, curr_vm_page_family);    }
+}
+
+vm_page_family_t *lookup_page_family_by_name(char *struct_name){
+    vm_page_family_t  *curr_vm_page_family = NULL;
+    vm_page_for_families_t *curr_vm_page_for_families = NULL;
+
+    for(curr_vm_page_for_families = first_vm_page_for_families;
+        curr_vm_page_for_families;
+        curr_vm_page_for_families = curr_vm_page_for_families->next){
+        ITERATE_PAGE_FAMILIES_BEGIN(first_vm_page_for_families, curr_vm_page_family){
+            if(strncpy(curr_vm_page_family->struct_name, struct_name, MM_MAX_STRUCT_NAME) == 0){
+                return curr_vm_page_family;
+            }
+        }ITERATE_PAGE_FAMILIES_END(first_vm_page_for_families, curr_vm_page_family)
+    }
+    return NULL;
+}

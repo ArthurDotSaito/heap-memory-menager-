@@ -12,6 +12,9 @@ void mm_init();
 //Registration Functions
 void mm_instantiate_new_page_family(char *struct_name, uint32_t struct_size);
 
+//Other Functions
+void mm_print_registered_page_families();
+
 #define MM_REG_STRUCT(struct_name) \
     (mm_instantiate_new_page_family(#struct_name, sizeof(struct_name)))
 

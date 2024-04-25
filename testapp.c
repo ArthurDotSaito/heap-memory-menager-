@@ -20,5 +20,6 @@ int main(int argc, char **argv){
     mm_init();
     MM_REG_STRUCT(employee_t);
     MM_REG_STRUCT(student_t);
+    mm_print_registered_page_families();
     return 0;
 }
