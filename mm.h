@@ -27,5 +27,13 @@ typedef struct vm_page_for_families_
         {
 #define ITERATE_PAGE_FAMILIES_END(vm_page_for_families_ptr, curr)   }}
 
+#define offset_of(container_structure, field_name) \
+    ((size_t)&(((container_structure *)0)->field_name))
+
+#define MM_GET_PAGE_FROM_META_BLOCK(block_meta_data_ptr) \
+    ((vm_page_t *)((char *)block_meta_data_ptr - block_meta_data_ptr->offset))
+
+
+
 vm_page_family_t *lookup_page_family_by_name(char *struct_name);
 
