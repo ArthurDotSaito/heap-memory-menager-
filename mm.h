@@ -3,7 +3,7 @@
 #define MM_MAX_STRUCT_NAME 32
 
 typedef enum{
-    MM_FALSE;
+    MM_FALSE,
     MM_TRUE
 } vm_bool_t;
 
